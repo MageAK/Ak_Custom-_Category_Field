@@ -1,0 +1,24 @@
+<?php
+
+$installer = $this;
+$installer->startSetup();
+
+try{
+$installer->run("
+DROP TABLE IF EXISTS {$this->getTable('cis_categoryattribute')};
+CREATE TABLE {$this->getTable('cis_categoryattribute')} (
+    `cis_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    `attribute_code` varchar(255) NOT NULL DEFAULT '',
+    `frontend_input` varchar(255) NOT NULL DEFAULT '',
+    `group` varchar(255) NOT NULL DEFAULT '',
+    `type` varchar(255) NOT NULL DEFAULT '',
+    `label` varchar(255) NOT NULL DEFAULT '',
+    `visible` int(11) DEFAULT NULL,
+    `required` int(11) DEFAULT NULL,
+    `user_defined` int(11) DEFAULT NULL,
+    PRIMARY KEY ( `cis_id` )
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;");
+
+}catch(Exception $e){}
+
+$installer->endSetup();

@@ -1,0 +1,15 @@
+<?php
+
+class Ak_Cis_Block_Adminhtml_Grid extends Mage_Adminhtml_Block_Widget_Grid
+{
+
+  public function __construct()
+    {die('443');
+        $this->_controller = 'adminhtml_grid';
+        $this->_blockGroup = 'cis';
+        $this->_headerText = Mage::helper('cis')->__('Category Manager');
+        $this->_addButtonLabel = Mage::helper('cis')->__('Add Category');
+        parent::__construct();
+    }
+  
+}

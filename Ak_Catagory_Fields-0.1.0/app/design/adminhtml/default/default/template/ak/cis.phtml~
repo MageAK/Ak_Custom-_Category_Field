@@ -1,0 +1,7 @@
+<?php 
+$collection = Mage::getModel('cis/test')->getCollection()->getData();
+foreach($collection as $data){
+         echo $data1 = $data['name'];
+}
+
+?>

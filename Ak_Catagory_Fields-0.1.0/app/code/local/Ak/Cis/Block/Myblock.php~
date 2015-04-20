@@ -1,0 +1,14 @@
+<?php
+class Ak_Cis_Block_Myblock extends Mage_Core_Block_Template
+{
+     public function methodblock()
+     {
+        //on initialize la variable
+        $retour='';
+        /* we are doing the query to select all elements of the pfay_test table (thanks to our model test/test and we sort them by id_pfay_test */
+     $collection = Mage::getModel('cis/test')->getCollection();
+                                 
+         /* then, we check the result of the query and with the function getData() */
+     print_r($collection);
+      }
+ }

@@ -1,0 +1,8 @@
+<?php
+class ak_cis_Model_Observer
+{
+  public function addfield($observer) {
+   die('hello');
+  }
+}
+?>

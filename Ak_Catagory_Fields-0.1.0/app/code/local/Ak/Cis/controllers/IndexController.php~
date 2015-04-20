@@ -1,0 +1,8 @@
+<?php
+class Ak_Cis_IndexController extends Mage_Adminhtml_Controller_Action
+{  
+    public function indexAction()
+    {
+          echo $this->__('Our News module is ready');
+    }   
+}

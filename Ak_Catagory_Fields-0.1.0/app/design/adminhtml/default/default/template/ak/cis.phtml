@@ -1,0 +1,13 @@
+<h1>For Custom phtml file</h1>
+
+<p>$category = Mage::registry('current_category');
+if ($category){
+   $value = $category->getData('YOUR_CUSTOM_ATTRIBUTE_CODE');
+} </p>
+
+</br>
+<h2>For Category/product listing page</h2>
+<p>
+path: app/design/frontend/yourpackage/yourtheme/template/catelog/category/view.phtml	
+</p>
+<p>echo $_helper->categoryAttribute($_category, $_category->getYOUR_CUSTOM_ATTRIBUTE_CODE(), 'YOUR_CUSTOM_ATTRIBUTE_CODE')</p>

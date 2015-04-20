@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ak_Cis>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Ak_Cis>
+    </modules>
+</config> 

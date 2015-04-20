@@ -1,0 +1,26 @@
+<?php
+
+
+class Ak_Cis_Block_Adminhtml_Grid extends Mage_Adminhtml_Block_Widget_Tabs
+{
+    public function __construct()
+    { 
+        parent::__construct();
+        $this->setId('New_tabs2');
+        $this->setDestElementId('edit_form');
+        $this->setTitle(Mage::helper('cis')->__('Extension Options'));
+    }
+
+    protected function _beforeToHtml()
+    {
+      
+        $this->addTab('additional', array( 
+            'label'     => Mage::helper('cis')->__('List of Fields'),
+            'content' => $this->getLayout()->createBlock('cis/adminhtml_cis_grid')
+             ->toHtml(),
+            //'class' => 'ajax',
+        ));  
+
+        return parent::_beforeToHtml();
+    }
+}

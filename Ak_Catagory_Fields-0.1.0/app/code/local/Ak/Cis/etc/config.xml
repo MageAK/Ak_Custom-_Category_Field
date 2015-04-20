@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<config>
+<modules>
+        <Ak_Cis>
+            <version>0.1.0</version>
+        </Ak_Cis>
+    </modules>
+<global>
+     <models>
+         <cis>
+              <class>Ak_Cis_Model</class>
+              <resourceModel>cis_mysql4</resourceModel>
+         </cis>
+         <cis_mysql4>
+              <class>Ak_Cis_Model_Mysql4</class>
+           <entities>
+                 <cis>
+                    <table>cis_categoryattribute</table>
+                 </cis>
+            </entities>
+            </cis_mysql4>
+        </models>
+        <resources>
+            <cis_setup>
+                <setup>
+                    <module>Ak_Cis</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </cis_setup>
+            <cis_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </cis_write>
+            <cis_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </cis_read>
+        </resources>
+	<helpers>
+          <cis>
+                <class>Ak_Cis_Helper</class>
+          </cis>
+        </helpers>
+  	<blocks>
+            <cis>
+                <class>Ak_Cis_Block</class>
+            </cis>
+        </blocks>
+        <events>
+    	<save>
+      	<observers>
+        <ak_cis_save_observer>
+          <type>singleton</type>
+          <class>cis/observer</class>
+          <method>addfield</method>
+        </ak_cis_save_observer>
+      </observers>
+    </save>
+  </events>
+ 	
+</global>
+<admin>
+     <routers>
+            <cis>
+                <use>admin</use>
+                <args>
+                    <module>Ak_Cis</module>
+                    <frontName>cis</frontName>
+                </args>
+            </cis>
+        </routers>
+    </admin>
+    <admin>
+    <routers>
+        <adminhtml>
+             <args>
+                 <modules>
+                     <ak before="Mage_Adminhtml">Ak_Cis_Adminhtml</ak>
+                 </modules>
+             </args>
+         </adminhtml>
+    </routers>
+</admin>
+<frontend>
+        <routers>
+            <cis>
+                <use>standard</use>
+                <args>
+                    <module>Ak_Cis</module>
+                    <frontName>cis</frontName>
+                </args>
+            </cis>
+        </routers>
+        <layout>
+            <updates>
+                <cis>
+                    <file>cis.xml</file>
+                </cis>
+            </updates>
+        </layout>
+    </frontend>
+  <adminhtml>
+   <translate>
+            <modules>
+                <Ak_Cis>
+                    <files>
+                        <default>Ak_Cis.csv</default>
+                    </files>
+                </Ak_Cis>
+            </modules>
+        </translate>
+         <menu>
+            <cis module="cis">
+                <title>CategoryAttribute</title>
+                <sort_order>150</sort_order>
+                <children>
+                    <add translate="title" module="cis">
+                        <title>Add New Fields</title>
+                        <sort_order>0</sort_order>
+                       <action>cis/adminhtml_cis/new</action>
+                    </add>
+                     <items translate="title" module="cis">
+                        <title>Fields Manager</title>
+                        <sort_order>1</sort_order>
+                        <action>cis/adminhtml_cis/grid</action>
+                    </items>
+                </children>
+		
+            </cis>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <cis>
+                            <title>cis</title>
+                            <sort_order>50</sort_order>
+                            <children>
+                                <items translate="title">
+                                    <title>cis</title>
+                                    <sort_order>10</sort_order>
+                                </items>
+                            </children>
+                        </cis>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <cis>
+                                            <title>cis Section</title>
+                                        </cis>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+
+        <layout>
+            <updates>
+                <cis>
+                    <file>cis.xml</file>
+                </cis>
+            </updates>
+        </layout>
+   </adminhtml>
+</config>

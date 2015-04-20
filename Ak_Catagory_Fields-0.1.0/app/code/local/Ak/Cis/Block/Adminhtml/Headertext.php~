@@ -1,0 +1,16 @@
+<?php
+
+
+class Ak_Cis_Block_Adminhtml_Fields extends Mage_Adminhtml_Block_Widget_Form_Container
+{
+   public function __construct()
+    {
+        $this->_controller = 'adminhtml_category';
+        $this->_blockGroup = 'clnews';
+        $this->_headerText = Mage::helper('clnews')->__('Category Manager');
+        $this->_addButtonLabel = Mage::helper('clnews')->__('Add Category');
+        parent::__construct();
+    }
+
+   
+}
